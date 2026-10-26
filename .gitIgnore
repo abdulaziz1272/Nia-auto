@@ -1,0 +1,80 @@
+
+# ==========================================
+# NIA AUTO - GITIGNORE
+# ==========================================
+
+# Node.js dependencies
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Production builds
+dist/
+build/
+frontend/dist/
+backend/dist/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.cache
+.cache/
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local databases and backups
+*.sqlite
+*.sqlite3
+*.db
+backups/
+*.bak
+*.dump
+
+# Local SSL certificates
+*.pem
+*.key
+*.p12
+*.pfx
+certs/
+
+# Local uploads
+uploads/
+
+# Package manager caches
+.npm/
+.pnpm-store/
+.yarn/cache/
+
+# Vite cache
+.vite/
+
+# TypeScript build information
+*.tsbuildinfo
