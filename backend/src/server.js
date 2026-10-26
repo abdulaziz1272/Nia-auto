@@ -9,7 +9,15 @@ import mongoose from 'mongoose'
 import { randomUUID } from 'node:crypto'
 import { User,Product,Inventory,Movement,Audit } from './models.js'
 if(!process.env.JWT_SECRET || process.env.JWT_SECRET.length<24){console.error('Set JWT_SECRET in backend/.env (at least 24 characters)');process.exit(1)}
-await mongoose.connect(process.env.MONGO_URI||'mongodb://127.0.0.1:27017/nia_auto')
+const mongoUri = process.env.MONGODB_URI;
+
+if (!mongoUri) {
+  throw new Error("MONGODB_URI is not configured");
+}
+
+await mongoose.connect(mongoUri);
+
+console.log("MongoDB connected successfully");
 const app=express();app.use(helmet());app.use(cors());app.use(express.json({limit:'256kb'}))
 const wrap=fn=>(req,res,next)=>Promise.resolve(fn(req,res,next)).catch(next)
 const error=(res,msg,status=400)=>res.status(status).json({error:msg})
