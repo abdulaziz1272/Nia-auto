@@ -4,7 +4,14 @@
   command = "npm run build"
   publish = "dist"
 
-# Vue Router uchun sahifalarni index.html ga yo'naltirish
+# API so'rovlarini Render serveriga yuborish
+[[redirects]]
+  from = "/api/*"
+  to = "https://nia-auto-api.onrender.com/api/:splat"
+  status = 200
+  force = true
+
+# Vue sahifalari uchun
 [[redirects]]
   from = "/*"
   to = "/index.html"
